@@ -4,9 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Web;
 using System.Web.Mvc;
 
 namespace SubReportDemo.Controllers
@@ -39,7 +37,7 @@ namespace SubReportDemo.Controllers
         };
 
         // GET: Report
-        public ActionResult Index()
+        public ActionResult Index(string reportType = "PDF")
         {
             var reportViewer = new LocalReport { EnableExternalImages = true };
             string reportPath = "~/Rdlc";
@@ -69,7 +67,7 @@ namespace SubReportDemo.Controllers
             reportViewer.Refresh();
 
             string mimeType;
-            var renderedBytes = ReportUtility.RenderedReportViewer(reportViewer, "PDF", out mimeType, head.ReportName);
+            var renderedBytes = ReportUtility.RenderedReportViewer(reportViewer, reportType, out mimeType, head.ReportName);
             return File(renderedBytes, mimeType);
         }
 

@@ -22,18 +22,15 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Report", "Index", new { controller = "Report" }, new { target = "_blank" })</li>
                 </ul>
-            </div>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown button
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+                <button onclick="myFunction()" class="dropbtn">Report</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Report (PDF)", "Index", new { controller = "Report", reportType = "PDF" }, new { target = "_blank" })</li>
+                        <li>@Html.ActionLink("Report (EXCEL)", "Index", new { controller = "Report", reportType = "EXCEL" }, new { target = "_blank" })</li>
+                        <li>@Html.ActionLink("Report (WORD)", "Index", new { controller = "Report", reportType = "WORD" }, new { target = "_blank" })</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -48,5 +45,26 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script>
+        /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 </html>
