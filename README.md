@@ -5,7 +5,7 @@ This project is aimed to support RDLC reports both in .NET & .NET 5. This is sti
 Step-By-Step guideline will be found [here](guide.md)
 
 # Features
- * RDLC file loading and compiling
+ * RDLC file loading
  * Local data sources
  * Parameter passing
  * Sub Reporting
