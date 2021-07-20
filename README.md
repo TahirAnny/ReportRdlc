@@ -2,7 +2,7 @@
 This project is aimed to support RDLC reports both in .NET & .NET 5. This is still work-in-progress.
 
 # How to use
-Step-By-Step guideline will be found [here](ReportRdlc/blob/master/Step-By-Step-Guide/guide.md)
+Step-By-Step guideline will be found [here](Step-By-Step-Guide/guide.md)
 
 # Features
  * RDLC file loading
